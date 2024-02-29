@@ -1,0 +1,17 @@
+# パズル本
+# mははさみの数、nは長さn個、currentは現在の棒の数
+def cutbar(m, n, current)
+  # 現在の棒の数が長さnこよりも多い場合
+  if current >= n then
+    0
+  # 現在の棒の数が長さn個よりも少ない場合
+  elsif current < m then
+    # 今回切った数を+1している。
+    1 + cutbar(m, n, current * 2)
+  else
+    # 今回切った数を+1している。currentにははさみの数だけ追加
+    1 + cutbar(m, n, current + m)
+  end
+end
+
+puts cutbar(3, 20, 1)
